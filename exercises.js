@@ -64,7 +64,21 @@
 
 
 //4 task________________________________________________________________
+var a = 1;
+var b = 2;
 
+//with 2 variables
+var numbers = [a, b] = [b, a];
+console.log(a, b);
+
+//with 3 variables
+var c = 3;
+var d = 4;
+
+var e = c;
+c = d;
+d = e;
+console.log(c, d);
 
 
 //5 task________________________________________________________________
