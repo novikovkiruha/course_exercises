@@ -1,0 +1,19 @@
+.header {
+    text-align: center;
+    font-size: 30px;
+}
+
+.animation {
+    margin: 10px;
+    position: relative;
+}
+
+.button {
+    width: 100px;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.button:hover { font-weight: 600; }
