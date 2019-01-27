@@ -200,7 +200,7 @@ document.getElementById('task-12').addEventListener('click', function() {
     for (var i = 2; i <= number; i++) {
         factorial = factorial*i;
     }
-    alert(number + "! = " + factorial);
+    alert(number + '! = ' + factorial);
 });
 
 // 13 task________________________________________________________________
@@ -208,21 +208,58 @@ document.getElementById('task-12').addEventListener('click', function() {
 а) показать сколько в данном числе цифр
 б) перевернуть число и вывести на экран (было 12345 стало 54321)
 в) показать на экран сумму цифр в числе*/
-
-
-
-
-
+document.getElementById('task-13').addEventListener('click', function() {
+    var number = prompt('Enter a number');
+    var array = number.split('');
+    var sum = 0;
+    var invert = 0;
+    for (var i = array.length-1; i >= 0; i--) {
+        sum += +array[i];
+        invert += array[i];
+    }
+    alert('Figures: ' + array.length + '\n' + 'Sum: ' + sum + '\n' + 'Invert: ' + invert.slice(1));
+});
 
 // 14 task________________________________________________________________
-
-
+/*Разработать программу, которая выводит на экран линию из символов. Число символов, какой использовать символ, и какая будет линия - вертикальная, или горизонтальная - указывает пользователь.*/
+document.getElementById('task-14').addEventListener('click', function() {
+    
+    var symbolNumbers = prompt('Enter the number of symbols');
+    var symbolType = prompt('Enter the symbol');
+    var lineType = prompt('Enter \'H\' for the horizontal line or \'V\' for the vertical line');
+    var array = [];
+    
+    var sumOfSymbols = 0;
+    for (var i = 0; i < +symbolNumbers; i++) {
+        array.push(symbolType);
+        if (lineType == 'H') {
+            sumOfSymbols += array[i];
+        }
+        else {
+            console.log(symbolType);
+        }
+    }
+    
+    if (lineType == 'H') {
+        console.log(sumOfSymbols.slice(1));
+    }
+});
 
 
 // 15 task________________________________________________________________
-
-
-
+/*Написать программу, которая находит сумму всех целых нечетных чисел в диапазоне, указанном пользователем.*/
+document.getElementById('task-15').addEventListener('click', function() {
+    var startNumber = prompt('Enter the start value of the range');
+    var endNumber = prompt('Enter the end value of the range');
+    
+    var sum = 0;
+    for (var i = +startNumber; i <= +endNumber; i++) {
+        if (i % 2 !== 0) {
+            sum += i;
+        }
+    }
+    alert(sum);    
+});
 
 // 16 task________________________________________________________________
 
@@ -249,3 +286,25 @@ document.getElementById('task-12').addEventListener('click', function() {
 
 
 // 20 task________________________________________________________________
+
+
+
+
+// 21 task________________________________________________________________
+
+
+
+
+// 22 task________________________________________________________________
+
+
+
+
+
+// 23 task________________________________________________________________
+
+
+
+
+
+// 24 task________________________________________________________________
