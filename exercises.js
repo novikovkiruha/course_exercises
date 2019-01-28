@@ -173,7 +173,6 @@ document.getElementById('task-10').addEventListener('click', function() {
     }
 });
 
-
 // 11 task________________________________________________________________
 // Write a program and continuously ask the user to enter a number or "ok" to exit. Calculate the sum of all the previously entered numbers and display it on the console.
 document.getElementById('task-11').addEventListener('click', function() {
@@ -190,7 +189,6 @@ document.getElementById('task-11').addEventListener('click', function() {
         }
     alert(sum);
 });
-
 
 // 12 task________________________________________________________________
 // Write a program and ask the user to enter a number. Compute the factorial of the number and print it on the console. For example, if the user enters 5, the program should calculate 5 x 4 x 3 x 2 x 1 and display it as 5! = 120.
@@ -245,7 +243,6 @@ document.getElementById('task-14').addEventListener('click', function() {
     }
 });
 
-
 // 15 task________________________________________________________________
 /*Написать программу, которая находит сумму всех целых нечетных чисел в диапазоне, указанном пользователем.*/
 document.getElementById('task-15').addEventListener('click', function() {
@@ -258,53 +255,182 @@ document.getElementById('task-15').addEventListener('click', function() {
             sum += i;
         }
     }
-    alert(sum);    
+    alert('Sum of even numbers in this range: ' + sum);    
 });
 
 // 16 task________________________________________________________________
-
-
-
-
+/*Дано натуральное число n. Написать программу, которая вычисляет факториал неотрицательных целых чисел n (т.е. число целое и больше 0). 
+Формула вычисления факториала:
+n! = 1*2*3*....*n,
+0! = 1 (факториал 0 равен 1)*/
+document.getElementById('task-16').addEventListener('click', function() {
+    var n = prompt("Enter a number");
+    var factorial = 1;
+    if (n > 0 && (n^0) == n) {
+        for (var i = 2; i <= n; i++) {
+            factorial = factorial*i;
+        }
+        alert(n + '! = ' + factorial);
+        
+    } else if (n == 0) {
+        alert(n + '! = ' + factorial);
+    } else {
+        alert('Wrong value');
+    }
+});
 
 // 17 task________________________________________________________________
-
-
-
-
+// Написать программу, которая находит сумму всех целых чисел от n до m включительно.
+document.getElementById('task-17').addEventListener('click', function() {
+    var n = prompt("Enter the first number");
+    var m = prompt("Enter the second number");
+    
+    var sum = 0;
+    for (var i = +n; i <= +m; i++) {
+        sum += i;
+    }
+    alert(sum);
+});
 
 // 18 task________________________________________________________________
-
-
+/*Если сумма трех x,y,z различных чисел больше 100, то наименьшее из этих чисел - заменить полусуммой двух других, иначе - меньшее из x и y заменить суммой оставшихся.*/
+document.getElementById('task-18').addEventListener('click', function() {
+    var x = +prompt("Enter the first number");
+    var y = +prompt("Enter the second number");
+    var z = +prompt("Enter the third number");
+    var array = [x, y, z];
+    
+    console.log(array);
+    var sum = x + y + z;
+    var min = array[0];
+    var mid = min;
+    var max = min;
+    if (sum > 100) {
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] < min) min = array[i];
+            else if (array[i] > max) max = array[i];
+            else mid = array[i];
+        }
+        min = (mid+max)/2;
+    } else {
+        if (x < y) x = y + z;
+        else if (x > y) y = x + z;
+    }
+    console.log(x, y, z);
+    console.log(min);
+    console.log(mid);
+    console.log(max);
+});
 
 
 
 // 19 task________________________________________________________________
 
+document.getElementById('task-19').addEventListener('click', function() {
 
+});
 
 
 
 // 20 task________________________________________________________________
 
+document.getElementById('task-20').addEventListener('click', function() {
 
+});
 
 
 // 21 task________________________________________________________________
 
+document.getElementById('task-21').addEventListener('click', function() {
 
+});
 
 
 // 22 task________________________________________________________________
 
+document.getElementById('task-22').addEventListener('click', function() {
 
+});
 
 
 
 // 23 task________________________________________________________________
 
+document.getElementById('task-23').addEventListener('click', function() {
 
+});
 
 
 
 // 24 task________________________________________________________________
+
+document.getElementById('task-24').addEventListener('click', function() {
+
+});
+
+// 25 task________________________________________________________________
+
+document.getElementById('task-25').addEventListener('click', function() {
+
+});
+
+
+
+// 26 task________________________________________________________________
+
+document.getElementById('task-26').addEventListener('click', function() {
+
+});
+
+
+// 27 task________________________________________________________________
+
+document.getElementById('task-27').addEventListener('click', function() {
+
+});
+
+
+
+// 28 task________________________________________________________________
+
+document.getElementById('task-28').addEventListener('click', function() {
+
+});
+
+
+
+// 29 task________________________________________________________________
+
+document.getElementById('task-29').addEventListener('click', function() {
+
+});
+
+
+
+// 30 task________________________________________________________________
+
+document.getElementById('task-30').addEventListener('click', function() {
+
+});
+
+
+
+// 31 task________________________________________________________________
+
+document.getElementById('task-31').addEventListener('click', function() {
+
+});
+
+
+// 32 task________________________________________________________________
+
+document.getElementById('task-32').addEventListener('click', function() {
+
+});
+
+
+// 33 task________________________________________________________________
+
+document.getElementById('task-33').addEventListener('click', function() {
+
+});
