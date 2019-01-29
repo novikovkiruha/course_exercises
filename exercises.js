@@ -1,5 +1,6 @@
 
 // 1 task________________________________________________________________
+//Проверить, является ли введенное число четным.
 document.getElementById('task-1').addEventListener('click', function() {
     var enteredNumber = prompt("Enter a number");
     if (enteredNumber == 0) alert("Zero");
@@ -96,21 +97,43 @@ document.getElementById('task-4').addEventListener('click', function() {
    1) Перевести метры в киллометры
    2) Перевести метры в сантиметры
    Другие варианты - ошибка*/
-
-
-
+document.getElementById('task-5').addEventListener('click', function() {
+    var m = prompt('Enter the meters');
+    var cm = m * 100;
+    var km = m / 100;
+    var measure = prompt('Enter \'cm\' for centimeters or \'km\' for kilometers');
+    
+    if (measure == 'cm') alert(cm + ' cm');
+    else if (measure == 'km') alert(km + ' km');
+    else alert('Wrong value');
+});
 
 // 6 task________________________________________________________________
 /*Дана комната без окон и дверей. В комнате на стены необходимо поклеить обои.
    Пользователь вводит:
    1) Длину и ширину рулона обоев
-   2) Высоту, ширину и длинну комнаты
+   2) Высоту, ширину и длину комнаты
    Расчитать сколько рулонов обоев нужно для поклейки:
    1) С использованием остатков
    2) Без использования остатков
    Выбор варианта поклейки предоставить пользователю*/
-
-
+document.getElementById('task-6').addEventListener('click', function() {
+    var wpLength = +prompt('Enter the length of the wallpaper');
+    var wpWidth = +prompt('Enter the width of the wallpaper');
+    var roomHeight = +prompt('Enter the height of the room');
+    var roomWidth = +prompt('Enter the width of the room');
+    var roomLength = +prompt('Enter the length of the room');
+    
+    var sRoom = (roomWidth + roomLength) * roomHeight;
+    var sWP = wpLength * wpWidth;
+    
+    // with remainder
+    var rolls1 = sRoom / sWP;
+    
+    // without remainder
+    var rolls2 = Math.ceil(roomWidth / wpWidth) + Math.ceil(roomLength / wpWidth);
+    alert('Rolls with using of remainders ' + rolls1 + '\nRolls without using of remainders ' + rolls2); 
+});
 
 
 // 7 task________________________________________________________________
@@ -312,32 +335,48 @@ document.getElementById('task-18').addEventListener('click', function() {
             else mid = array[i];
         }
         min = (mid+max)/2;
+        console.log(min, mid, max);
     } else {
         if (x < y) x = y + z;
         else if (x > y) y = x + z;
+        console.log(x, y, z);
     }
-    console.log(x, y, z);
-    console.log(min);
-    console.log(mid);
-    console.log(max);
+    
 });
 
 
 
 // 19 task________________________________________________________________
-
+//На часах h часов m минут и S секунд. Вывести время через одну секунду.
 document.getElementById('task-19').addEventListener('click', function() {
-
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    console.log(h, m, s);
+    var time = [h, m, s];
+    for (var i = 0; i < time.length; i++) {
+        (function(i) {
+            setTimeout(function() { 
+                console.log(time[i]); 
+            }, 1000 * i);
+        })(i);
+    }
 });
-
-
 
 // 20 task________________________________________________________________
-
+//Пользователь вводит 4-х-значное число, поменять местами 1 с 2 и 3 с 4 цифры. Если число не 4-х значное - вывести сообщение.
 document.getElementById('task-20').addEventListener('click', function() {
-
+    var number = prompt('Enter the 4-digit number');
+    var array = number.split('');
+    
+    [array[0], array[1], array[2], array[3]] = [array[1], array[0], array[3], array[2]];
+    sum = 0;
+    for (var i = 0; i < array.length; i++) {
+        sum += array[i];
+    }
+    alert('Entered number = ' + number + '\nSwapped number = ' + sum.slice(1));
 });
-
 
 // 21 task________________________________________________________________
 
