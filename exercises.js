@@ -344,15 +344,11 @@ document.getElementById('task-18').addEventListener('click', function() {
     
 });
 
-
-
 // 19 task________________________________________________________________
 //На часах h часов m минут и S секунд. Вывести время через одну секунду.
 document.getElementById('task-19').addEventListener('click', function() {
     var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
+    var h = today.getHours(), m = today.getMinutes(), s = today.getSeconds();
     console.log(h, m, s);
     var time = [h, m, s];
     for (var i = 0; i < time.length; i++) {
@@ -367,34 +363,58 @@ document.getElementById('task-19').addEventListener('click', function() {
 // 20 task________________________________________________________________
 //Пользователь вводит 4-х-значное число, поменять местами 1 с 2 и 3 с 4 цифры. Если число не 4-х значное - вывести сообщение.
 document.getElementById('task-20').addEventListener('click', function() {
-    var number = prompt('Enter the 4-digit number');
+    var number = prompt('Enter a 4-digit number');
+    
     var array = number.split('');
     
-    [array[0], array[1], array[2], array[3]] = [array[1], array[0], array[3], array[2]];
-    sum = 0;
-    for (var i = 0; i < array.length; i++) {
-        sum += array[i];
+    if (array.length === 4) {
+        [array[0], array[1], array[2], array[3]] = [array[1], array[0], array[3], array[2]];
+        sum = 0;
+        for (var i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        alert('Entered number = ' + number + '\nSwapped number = ' + sum.slice(1));
+    } else {
+        alert(number + ' is not a 4-digit number. Please, try again.');
     }
-    alert('Entered number = ' + number + '\nSwapped number = ' + sum.slice(1));
 });
 
 // 21 task________________________________________________________________
-
+// Пользователь вводит 6-ти значное число, определить является ли число счастливым (сумма первых 3-х цифр равна сумме вторых 3-х цифр).
 document.getElementById('task-21').addEventListener('click', function() {
-
+    var number = prompt('Enter a 6-digit number');
+    
+    var array = number.split('');
+    var sum1 = 0, sum2 = 0;
+    console.log(sum1, sum2);
+    if (array.length === 6) {
+        for (var i = 0; i < 3; i++) {
+            sum1 += +array[i];
+        }
+        for (var i = 5; i > 2; i--) {
+            sum2 += +array[i];
+        }
+        if (sum1 === sum2) {
+            alert(number + ' is a lucky 6-digit number. You are the winner!!! ;)');
+        } else {
+            alert(number + ' is not a lucky number. Better luck next time!');
+        }
+    } else {
+        alert(number + ' is not a 6-digit number. Please, try again.');
+    }
+    console.log(sum1, sum2);
 });
 
 
 // 22 task________________________________________________________________
-
+// С клавиатуры вводятся n чисел. Составьте программу, которая определяет кол-во отрицательных, кол-во положительных и кол-во нулей среди введеных чисел.Значение n вводится с клавиатуры.
 document.getElementById('task-22').addEventListener('click', function() {
 
 });
 
 
-
 // 23 task________________________________________________________________
-
+// Сколько нечетных среди n введенных
 document.getElementById('task-23').addEventListener('click', function() {
 
 });
@@ -402,13 +422,13 @@ document.getElementById('task-23').addEventListener('click', function() {
 
 
 // 24 task________________________________________________________________
-
+// Вывод всех двухзначных чисел, кратных 5
 document.getElementById('task-24').addEventListener('click', function() {
 
 });
 
 // 25 task________________________________________________________________
-
+// Найти сумму цифр целого положительного числа
 document.getElementById('task-25').addEventListener('click', function() {
 
 });
@@ -416,14 +436,14 @@ document.getElementById('task-25').addEventListener('click', function() {
 
 
 // 26 task________________________________________________________________
-
+// Найти max из введенных чисел
 document.getElementById('task-26').addEventListener('click', function() {
 
 });
 
 
 // 27 task________________________________________________________________
-
+// Есть ли среди введенных число k
 document.getElementById('task-27').addEventListener('click', function() {
 
 });
@@ -431,7 +451,7 @@ document.getElementById('task-27').addEventListener('click', function() {
 
 
 // 28 task________________________________________________________________
-
+// Даны натуральные числа от 20 до 50.Напечатать те из них, которые делятся на 3, но не делятся на 5.
 document.getElementById('task-28').addEventListener('click', function() {
 
 });
@@ -439,7 +459,7 @@ document.getElementById('task-28').addEventListener('click', function() {
 
 
 // 29 task________________________________________________________________
-
+// Составьте программу, выводящую на экран квадраты чисел от 10 до 20 включительно.
 document.getElementById('task-29').addEventListener('click', function() {
 
 });
@@ -447,7 +467,7 @@ document.getElementById('task-29').addEventListener('click', function() {
 
 
 // 30 task________________________________________________________________
-
+// Пользователь вводит число. Определить количество цифр в числе и наибольшую цифру числа.
 document.getElementById('task-30').addEventListener('click', function() {
 
 });
@@ -455,21 +475,52 @@ document.getElementById('task-30').addEventListener('click', function() {
 
 
 // 31 task________________________________________________________________
-
+// Найдите все четырехзначные числа, сумма цифр каждого из которых равна 15.
 document.getElementById('task-31').addEventListener('click', function() {
 
 });
 
 
 // 32 task________________________________________________________________
-
+// Одноклеточная амеба каждые 3 часа делится на 2 клетки. Определить, сколько амеб будет через 3, 6, 9, 12,..., 24 часа.
 document.getElementById('task-32').addEventListener('click', function() {
-
+    var amoeba = 2;
+    var startHours = 3;
+    var maxHours = 24;
+    
+    for (var i = 6; i <= maxHours; i+=3) {
+        amoeba *= 2;
+        console.log(i + ' hours - ' + amoeba + ' amoebas');
+    }
 });
-
 
 // 33 task________________________________________________________________
-
+// Начав тренировки, лыжник в первый день пробежал 10 км. Каждый следующий день он увеличивал пробeг на 10% от пробега предыдущего дня. Определить в какой день суммарный пробег за все дни превысит 100 км.
 document.getElementById('task-33').addEventListener('click', function() {
-
+    var run = 10;
+    var days = 1;
+    var runIncrement = 0.1;
+    var runMax = 100;
+    
+    while (run <= runMax) {
+        run += run * runIncrement;
+        days++;
+    }
+    alert('Skier will pass more than ' + runMax + 'km in ' + days + ' days');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
