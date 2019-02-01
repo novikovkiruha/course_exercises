@@ -405,35 +405,59 @@ document.getElementById('task-21').addEventListener('click', function() {
     console.log(sum1, sum2);
 });
 
-
 // 22 task________________________________________________________________
-// С клавиатуры вводятся n чисел. Составьте программу, которая определяет кол-во отрицательных, кол-во положительных и кол-во нулей среди введеных чисел.Значение n вводится с клавиатуры.
+// С клавиатуры вводятся n чисел. Составьте программу, которая определяет кол-во отрицательных, кол-во положительных и кол-во нулей среди введеных чисел. Значение n вводится с клавиатуры.
 document.getElementById('task-22').addEventListener('click', function() {
-
+    var n = +prompt('Enter a number of digits');
+    var array = [];
+    var positiveNumber = 0;
+    var negativeNumber = 0;
+    var zero = 0;
+    
+    for (var i = 0; i < n; i++) {
+        var numbers = +prompt('Enter any number');
+        array.push(numbers);
+        if (numbers > 0) positiveNumber++;
+        else if (numbers < 0) negativeNumber++;
+        else if (numbers == 0) zero++;
+    }
+    alert('Number of the positive digits - ' + positiveNumber + '\nNumber of the negative digits - ' + negativeNumber + '\nNumber of zeros - ' + zero);
+    console.log(array);
 });
 
-
-// 23 task________________________________________________________________
-// Сколько нечетных среди n введенных
+// С клавиатуры вводятся n чисел. Найти все нечетные
 document.getElementById('task-23').addEventListener('click', function() {
-
+    var n = prompt('Enter a number of digits');
+    var odd = 0, even = 0;
+    
+    for (var i = 0; i < n; i++) {
+        var number = +prompt('Enter any number');
+        if (number % 2 === 0) even++;
+        else odd++;
+    }
+    alert('Odd numbers - ' + odd + '\nEven numbers - ' + even);
 });
-
-
 
 // 24 task________________________________________________________________
 // Вывод всех двухзначных чисел, кратных 5
 document.getElementById('task-24').addEventListener('click', function() {
-
+    var n = +prompt('Enter a number of digits')
+    var array = [];
+    
+    for (var i = 0; i < n; i++) {
+        var numbers = prompt('Enter any number');
+        if (numbers.length == 2) {
+            array.push(numbers);
+        }
+    }
+    alert('2-digit numbers - ' + array)
 });
 
 // 25 task________________________________________________________________
 // Найти сумму цифр целого положительного числа
 document.getElementById('task-25').addEventListener('click', function() {
-
+    
 });
-
-
 
 // 26 task________________________________________________________________
 // Найти max из введенных чисел

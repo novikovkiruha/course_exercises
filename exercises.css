@@ -17,3 +17,12 @@
 }
 
 .button:hover { font-weight: 600; }
+
+.left_block {
+    position: absolute;
+}
+
+.right_block {
+    position: absolute;
+    right: 30%;
+}
