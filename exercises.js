@@ -1,3 +1,17 @@
+// function for entered numbers
+function enteredNumber() {
+    var digits = +prompt('Enter a number of digits (no more than 10)');
+    var array = [];
+    if (digits <= 10) {
+        for (var i = 0; i < digits; i++) {
+            var numbers = +prompt('Enter any number');
+            array.push(numbers);
+        }
+    } else {
+        alert('Number of digitis shouldn\'t be less than 10. Please try again!');
+    }
+    return array;
+}
 
 // 1 task________________________________________________________________
 //Проверить, является ли введенное число четным.
@@ -407,32 +421,28 @@ document.getElementById('task-21').addEventListener('click', function() {
 
 // 22 task________________________________________________________________
 // С клавиатуры вводятся n чисел. Составьте программу, которая определяет кол-во отрицательных, кол-во положительных и кол-во нулей среди введеных чисел. Значение n вводится с клавиатуры.
+
 document.getElementById('task-22').addEventListener('click', function() {
-    var n = +prompt('Enter a number of digits');
-    var array = [];
+    var array = enteredNumber();
     var positiveNumber = 0;
     var negativeNumber = 0;
     var zero = 0;
     
-    for (var i = 0; i < n; i++) {
-        var numbers = +prompt('Enter any number');
-        array.push(numbers);
-        if (numbers > 0) positiveNumber++;
-        else if (numbers < 0) negativeNumber++;
-        else if (numbers == 0) zero++;
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] > 0) positiveNumber++;
+        else if (array[i] < 0) negativeNumber++;
+        else if (array[i] == 0) zero++;
     }
     alert('Number of the positive digits - ' + positiveNumber + '\nNumber of the negative digits - ' + negativeNumber + '\nNumber of zeros - ' + zero);
-    console.log(array);
 });
 
 // С клавиатуры вводятся n чисел. Найти все нечетные
 document.getElementById('task-23').addEventListener('click', function() {
-    var n = prompt('Enter a number of digits');
+    var array = enteredNumber();
     var odd = 0, even = 0;
     
-    for (var i = 0; i < n; i++) {
-        var number = +prompt('Enter any number');
-        if (number % 2 === 0) even++;
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] % 2 === 0) even++;
         else odd++;
     }
     alert('Odd numbers - ' + odd + '\nEven numbers - ' + even);
@@ -456,52 +466,99 @@ document.getElementById('task-24').addEventListener('click', function() {
 // 25 task________________________________________________________________
 // Найти сумму цифр целого положительного числа
 document.getElementById('task-25').addEventListener('click', function() {
-    
+    var number = prompt('Enter a number');
+    var array = number.split('');
+    var sum = 0;
+    if (number > 0 && (number^0) == number) {
+        if (array.length > 1) {
+        for (var i = 0; i < array.length; i++) sum += +array[i];
+        alert(sum);
+        } else alert(number);
+    } else alert('Please, enter a positive integer');
 });
 
 // 26 task________________________________________________________________
 // Найти max из введенных чисел
 document.getElementById('task-26').addEventListener('click', function() {
-
+    var array = enteredNumber();
+    
+    var max = 0;
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] > max) max = array[i];
+    }
+    alert('Max number - ' + max);
 });
 
 
 // 27 task________________________________________________________________
 // Есть ли среди введенных число k
 document.getElementById('task-27').addEventListener('click', function() {
-
+    var array = enteredNumber();
+    
+    var desiredNumber;
+    var soughtNumber = prompt('Enter the number you are looking for');
+    for (var i = 0; i < array.length; i++) {
+        if (soughtNumber == array[i]) desiredNumber = soughtNumber;
+    }
+    if (soughtNumber == desiredNumber) alert('The desired number is in the list');
+    else alert('There is no the desired number');
 });
-
-
 
 // 28 task________________________________________________________________
-// Даны натуральные числа от 20 до 50.Напечатать те из них, которые делятся на 3, но не делятся на 5.
+// Даны натуральные числа от 20 до 50. Напечатать те из них, которые делятся на 3, но не делятся на 5.
 document.getElementById('task-28').addEventListener('click', function() {
-
+    var array = [];
+    for (var i = 20; i <= 50; i++) {
+        if (i % 3 === 0 && i % 5 !== 0) array.push(i);
+    }
+    alert(array);
 });
-
-
 
 // 29 task________________________________________________________________
 // Составьте программу, выводящую на экран квадраты чисел от 10 до 20 включительно.
 document.getElementById('task-29').addEventListener('click', function() {
-
+    var array = [];
+    for (var i = 10; i <= 20; i++) {
+        array.push(i*i);
+    }
+    alert(array);
 });
-
-
 
 // 30 task________________________________________________________________
 // Пользователь вводит число. Определить количество цифр в числе и наибольшую цифру числа.
 document.getElementById('task-30').addEventListener('click', function() {
-
+    var number = prompt('Enter the number');
+    var array = number.split('');
+    var numberOfDigits = array.length;
+    var maxDigit = 0;
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] > maxDigit) maxDigit = +array[i];
+    }
+    alert('Number of digits: ' + numberOfDigits + '\nMax digit: ' + maxDigit); 
 });
-
-
 
 // 31 task________________________________________________________________
 // Найдите все четырехзначные числа, сумма цифр каждого из которых равна 15.
 document.getElementById('task-31').addEventListener('click', function() {
-
+    var array = enteredNumber();
+    
+    var array4Digits = [];
+    for (var i = 0; i < array.length; i++) {
+        if (String(array[i]).length == 4) array4Digits.push(array[i]);
+    }
+    console.log(array, array4Digits);
+    
+    var arraySum15 = [];
+    var sumOfDigits = 0;
+    for (var i = 0; i < array4Digits.length; i++) {
+        var sumArray = String(array4Digits[i]).split('');
+        for (var j = 0; j < sumArray.length; j++) {
+            sumOfDigits += +sumArray[j];
+        }
+        if (sumOfDigits === 15) arraySum15.push(array4Digits[i]);
+    }
+    console.log(arraySum15);
+    alert(arraySum15);
 });
 
 
@@ -533,6 +590,33 @@ document.getElementById('task-33').addEventListener('click', function() {
     alert('Skier will pass more than ' + runMax + 'km in ' + days + ' days');
 });
 
+// 33 task________________________________________________________________
+// Сортировка
+document.getElementById('task-34').addEventListener('click', function() {
+    
+    var numberOfValues = prompt('Enter the number of values');
+    var value;
+    var array = [];
+    
+    for (var i = 0; i < numberOfValues; i++) {
+        value = prompt('Enter any value');
+        array.push(value);
+    }
+    console.log(array);
+    
+    var temp;    
+    for (var i = 0; i < array.length-1; i++) {
+        for (var j = i+1; j < array.length; j++) {
+            if (array[i] > array[j]) {
+                temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+    }
+    
+    console.log(array);
+});
 
 
 
